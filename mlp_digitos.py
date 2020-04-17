@@ -93,19 +93,19 @@ loss=np.append(loss,mlp.loss_)
 f1_s=np.append(f1_s,sklearn.metrics.f1_score(Y_test, mlp.predict(X_test), average='macro'))
 
 
-# In[28]:
+# In[1]:
 
 
 plt.figure(figsize=(30, 20))
 scale = np.max(mlp.coefs_[0])
 plt.figure()
 for i in range(7):
-    l1_plot = plt.subplot(4, 2, i + 1)
+    l1_plot = plt.subplot(2, 4, i + 1)
     l1_plot.imshow(opt_coef[0][:,i].reshape(8, 8), interpolation='nearest',
                    cmap=plt.cm.RdBu, vmin=-scale, vmax=scale)
     l1_plot.set_xticks(())
     l1_plot.set_yticks(())
-    l1_plot.set_xlabel('Neuron %i' % i)
+    l1_plot.set_xlabel('Neuron {}'.format(i+1) )
 plt.savefig("neuronas.png")
 
 
